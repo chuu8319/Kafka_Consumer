@@ -11,10 +11,12 @@ public class KafkaMessageListener {
 
     Logger log = LoggerFactory.getLogger(KafkaMessageListener.class);
 
+
 //    @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.consumer.group-id}")
 //    public void consume(String message) {
 //        log.info("consumer1 consume the message {} ", message);
 //    }
+//
 //    @KafkaListener(topics = "${topic.name}",groupId = "${spring.kafka.consumer.group-id}")
 //    public void consume2(String message) {
 //        log.info("consumer2 consume the message {} ", message);
@@ -29,7 +31,9 @@ public class KafkaMessageListener {
 //    public void consume4(String message) {
 //        log.info("consumer4 consume the message {} ", message);
 //    }
-    @KafkaListener(topics = "${topic.name}",groupId = "${spring.kafka.consumer.group-id}")
+
+    //    @KafkaListener(topics = "${topic.name}",groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${myconsumer.topic-name}", groupId = "${myconsumer.group-id}")
     public void consumeObject(Customer customer) {
         log.info("consumer consume the Customer Object {} ", customer.toString());
     }
